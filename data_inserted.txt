@@ -1,0 +1,68 @@
+INSERT INTO manufacturer_contact (contactPerson, phone, email)
+VALUES
+("Hermann Maier", "+43664123456", "maier@hotmail.com"),
+("Matthias Müller", "+43664239119", "mm@outlook.com"),
+("Matt Miller", "+43211707", "miller@opel.com"),
+("Maria Marianne", "+019072097", "maria@ferrari.com"),
+("Heinz Heinzl", "+0189727247", "hehe@ipsum.com");
+
+INSERT INTO manufacturer (contactID, name)
+VALUES
+(1, "Mercedes"),
+(2, "Volkswagen"),
+(3, "Opel"),
+(4, "Ferrari"),
+(5, "LoremIpsum");
+
+INSERT INTO cars (licensePlate, manufacturerID, model, available)
+VALUES
+("AH7474", 1, "Mercedes A Class", 1),
+("JQ2072", 3, "Opel Astra", 0),
+("AJ1814", 2, "VW Golf 8", 1),
+("ZA2470", 4, "Ferrari 488", 1),
+("HA2307", 5, "Lorem5", 1);
+
+INSERT INTO cars_condition (licensePlate, totalKM, lastMaintenance, boughtOn)
+VALUES
+("AH7474", 500, "2019-08-10", "2017-01-03"),
+("JQ2072", 1200, "2018-05-12", "2016-04-04"),
+("AJ1814", 7070, "2019-03-04", "2014-06-03"),
+("ZA2470", 797, "2018-10-10", "2018-01-04"),
+("AH0707", 600, NULL, "2019-10-10");
+
+INSERT INTO locations (name, address, phone)
+VALUES
+("Parkplatz", "Schweglerstraße 10, 1150 Wien", "+017037808"),
+("Tankstelle", "Poststraße 3, 1050 Wien", "+012780781"),
+("IKEA", "Sverigestraße 1A, 1220 Wien", "+017170710"),
+("Spar", "Mariahilferstraße 55, 1060 Wien", "+132244224"),
+("Merkur", "Johnstraße 110, 1150 Wien", "+02202407");
+
+
+INSERT INTO reservation (customerID, licensePlate, date_from, date_to, locationID)
+VALUES
+(1, "AH7474", "2019-11-01", "9999-01-01", 3),
+(2, "AH0707", "2019-10-20", "2019-10-25", 4),
+(2, "AJ1814", "2019-09-20", "2019-09-29", 4),
+(5, "ZA2470", "2018-10-10", "9999-01-01", 1),
+(4, "AH0707", "2019-11-05", "2019-11-08", 2);
+
+INSERT INTO invoice (invoice_date, reservationID, totalCost, chargesPaid)
+VALUES
+("2019-10-30", 1, 500.30, 1),
+("2019-10-19", 2, 1000, 1),
+("2019-09-19", 3, 703.33, 1),
+("2018-10-03", 4, 1077.77, 1),
+("2019-11-01", 5, 420.20, 0);
+
+INSERT INTO car_return (invoiceID, returnLocation, returnDate)
+VALUES
+(2, "Schweglerstraße 3, 1150 Wien", "2019-10-25"),
+(3, "Mariahilferstraße 50, 1060 Wien", "2019-11-20"),
+(5, "LoremIpsum Street 60, 1010 Wien", "2019-11-10");
+
+
+INSERT INTO additionalcharges (returnID, chargeAmount, chargesPaid, reason)
+VALUES
+(2, 100.60, 1, "returned too late"),
+(3, 1000, 0, "car return damaged");
